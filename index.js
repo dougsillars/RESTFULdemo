@@ -24,7 +24,16 @@ app.post('/appendorder', (req,res) => {
 	
 	var item = req.body.item;
 	var count = req.body.count;
-    var response = "Success!" + count + " " +item +"(s) added to your order."
+    var failure = 0.1;
+    var response="";
+    if(Math.random() < failure){
+        //order failed
+        response = "Order failed.";
+    }
+    else{
+        response = "Success!" + count + " " +item +"(s) added to your order."
+    }
+    
     console.log(response);
     res.send(response);
 });
