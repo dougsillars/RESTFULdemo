@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
+app.get('/'),(req,res)=>{
+    res.sendStatus(200);
+}
 
 
 app.post('/appendorder', (req,res) => {
