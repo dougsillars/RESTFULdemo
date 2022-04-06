@@ -39,6 +39,53 @@ app.post('/appendorder', (req,res) => {
 });
 
 
+app.post('/USPS', (req,res) => {
+	console.log("request body",req.body);
+	
+	var fourdigit1 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit4 = (int)(Math.floor(Math.random()*1000));
+    var twodigit = (int)(Math.floor(Math.random()*10));
+	var trackingNumber = fourdigit1 + " " + fourdigit2 + " " + fourdigit3 + " " + fourdigit4 + " " + twodigit;
+
+    response = "USPS Tracking number " + trackingNumber + " is ready to be shipped.";
+   
+    console.log(response);
+    res.send(response);
+});
+
+app.post('/UPS', (req,res) => {
+	console.log("request body",req.body);
+	
+	var sixstring = Math.random().toString(36).substr(2,6);
+    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
+    var twodigit = (int)(Math.floor(Math.random()*10));
+	var trackingNumber = "1Z " + sixstring + " " + twodigit + " " + fourdigit2 + fourdigit3;
+ 
+  
+
+    response = "UPS Tracking number " + trackingNumber + " is ready to be shipped.";
+   
+    console.log(response);
+    res.send(response);
+});
+
+app.post('/FedEx', (req,res) => {
+	console.log("request body",req.body);
+	
+    var fourdigit1 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
+	var trackingNumber =  fourdigit1 + " " + fourdigit2 + " " + fourdigit3;
+
+    response = "FedEx Tracking number " + trackingNumber + " is ready to be shipped.";
+   
+    console.log(response);
+    res.send(response);
+});
+
 //testing on 3021
 app.listen(process.env.PORT || 3025, () =>
   console.log('Example app listening on port 3025!'),
