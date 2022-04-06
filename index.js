@@ -42,11 +42,11 @@ app.post('/appendorder', (req,res) => {
 app.post('/USPS', (req,res) => {
 	console.log("request body",req.body);
 	
-	var fourdigit1 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit4 = (int)(Math.floor(Math.random()*1000));
-    var twodigit = (int)(Math.floor(Math.random()*10));
+	var fourdigit1 = (Math.floor(Math.random()*10000));
+    var fourdigit2 = (Math.floor(Math.random()*10000));
+    var fourdigit3 = (Math.floor(Math.random()*10000));
+    var fourdigit4 = (Math.floor(Math.random()*10000));
+    var twodigit = (Math.floor(Math.random()*100));
 	var trackingNumber = fourdigit1 + " " + fourdigit2 + " " + fourdigit3 + " " + fourdigit4 + " " + twodigit;
 
     response = "USPS Tracking number " + trackingNumber + " is ready to be shipped.";
@@ -59,9 +59,10 @@ app.post('/UPS', (req,res) => {
 	console.log("request body",req.body);
 	
 	var sixstring = Math.random().toString(36).substr(2,6);
-    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
-    var twodigit = (int)(Math.floor(Math.random()*10));
+    sixstring = sixstring.toUpperCase();
+    var fourdigit2 = (Math.floor(Math.random()*10000));
+    var fourdigit3 = (Math.floor(Math.random()*10000));
+    var twodigit = (Math.floor(Math.random()*100));
 	var trackingNumber = "1Z " + sixstring + " " + twodigit + " " + fourdigit2 + fourdigit3;
  
   
@@ -75,9 +76,9 @@ app.post('/UPS', (req,res) => {
 app.post('/FedEx', (req,res) => {
 	console.log("request body",req.body);
 	
-    var fourdigit1 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit2 = (int)(Math.floor(Math.random()*1000));
-    var fourdigit3 = (int)(Math.floor(Math.random()*1000));
+    var fourdigit1 = (Math.floor(Math.random()*10000));
+    var fourdigit2 = (Math.floor(Math.random()*10000));
+    var fourdigit3 = (Math.floor(Math.random()*10000));
 	var trackingNumber =  fourdigit1 + " " + fourdigit2 + " " + fourdigit3;
 
     response = "FedEx Tracking number " + trackingNumber + " is ready to be shipped.";
